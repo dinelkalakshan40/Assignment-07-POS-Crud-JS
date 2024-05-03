@@ -2,6 +2,12 @@ var customers = [];
 var recordIndex;
 
 
+$(document).ready(() => {
+    if (localStorage.getItem('customers')) {
+        customers = JSON.parse(localStorage.getItem('customers'));
+        loadTable();
+    }
+});
 
 function loadTable() {
 
@@ -20,7 +26,7 @@ function loadTable() {
 }
 $("#customer-add-btn").on('click', () => {
 
-    var customerId = $('#customer-id').val();
+    //var customerId = $('#customer-id').val();
     var customerName = $('#customer-name').val();
     var customerAddress = $('#customer-address').val();
     var customerSalary = $('#customer-salary').val();
@@ -35,9 +41,33 @@ $("#customer-add-btn").on('click', () => {
     }
 
     customers.push(customer);
+    localStorage.setItem('customers', JSON.stringify(customers));
     loadTable();
     console.log(customers);
 
+    $("#customer-clear-btn").click();
+});
+
+
+
+$("#customer-update-btn").on('click', () => {
+    var customerId = $('#customer-id').val();
+    var customerName = $('#customer-name').val();
+    var customerAddress = $('#customer-address').val();
+    var customerSalary = $('#customer-salary').val();
+
+
+    let customerObj = customers[recordIndex];
+    // let studentObj = {...students[recordIndex]}; // clone object
+    customerObj.id = customerId;
+    customerObj.name = customerName;
+    customerObj.address = customerAddress;
+    customerObj.salary = customerSalary;
+
+
+    // console.log("S1: ", studentObj);
+    // console.log("S2: ", students[recordIndex]);
+
     loadTable();
-    $("#student-reset").click();
+    $("#customer-clear-btn").click();
 });
