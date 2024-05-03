@@ -1,0 +1,17 @@
+body{
+    font-family: 'Varela Round', sans-serif;
+}
+.text-center  p-1 {
+    font-size: 20px;
+    font-weight: bold;
+}
+.col-6{
+    justify-items: end;
+}
+#cardid{
+    margin-left: 50%;
+}
+#cardid2{
+    margin-left: 67%;
+    margin-top: -17%;
+}

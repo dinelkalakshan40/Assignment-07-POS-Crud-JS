@@ -1,0 +1,23 @@
+
+header{
+    background: -webkit-linear-gradient(bottom, #2dbd6e, #a6f77b);
+    box-shadow: 2px  2px 2px 2px rgb(13, 187, 115);
+    font-size: medium;
+
+    width: 100%;
+    font-weight: bold;
+
+}
+@media all and (max-width: 420px){
+    header{
+        width: 420px;
+    }
+
+}
+*{
+    font-family: 'Varela Round', sans-serif;
+}
+.custom-border{
+    border: 2px solid slategray;
+    border-radius: 8px;
+}
